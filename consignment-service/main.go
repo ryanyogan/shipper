@@ -69,7 +69,7 @@ func (s *service) GetConsignments(ctx context.Context, req *pb.GetRequest, res *
 func main() {
 	repo := &ConsignmentRepository{}
 	srv := micro.NewService(
-		micro.Name("go.micro.src.consignment"),
+		micro.Name("go.micro.srv.consignment"),
 		micro.Version("latest"),
 	)
 
