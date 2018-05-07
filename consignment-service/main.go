@@ -1,9 +1,10 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
+
+	"golang.org/x/net/context"
 
 	micro "github.com/micro/go-micro"
 	pb "github.com/ryanyogan/shipper/consignment-service/proto/consignment"
