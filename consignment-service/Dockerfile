@@ -18,5 +18,4 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY --from=builder /go/src/github.com/ryanyogan/shipper/consignment-service/consignment-service .
-
 RUN ["./consignment-service"]
