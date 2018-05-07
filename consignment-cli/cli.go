@@ -1,7 +1,8 @@
 package main
 
 import (
-	"context"
+	"golang.org/x/net/context"
+
 	"encoding/json"
 	"io/ioutil"
 	"log"
@@ -28,25 +29,27 @@ func parseFile(file string) (*pb.Consignment, error) {
 }
 
 func main() {
+
 	cmd.Init()
 
-	// Create a new greeter client
+	// Create new greeter client
 	client := pb.NewShippingServiceClient("go.micro.srv.consignment", microclient.DefaultClient)
 
-	// Contact the server and print its response
+	// Contact the server and print out its response.
 	file := defaultFilename
 	if len(os.Args) > 1 {
 		file = os.Args[1]
 	}
 
 	consignment, err := parseFile(file)
+
 	if err != nil {
 		log.Fatalf("Could not parse file: %v", err)
 	}
 
 	r, err := client.CreateConsignment(context.TODO(), consignment)
 	if err != nil {
-		log.Fatalf("Could not greet: %v", err)
+		log.Fatalf("Could not create: %v", err)
 	}
 	log.Printf("Created: %t", r.Created)
 
